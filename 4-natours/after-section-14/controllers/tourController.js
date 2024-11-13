@@ -21,7 +21,7 @@ const upload = multer({
 });
 
 exports.uploadTourImages = upload.fields([
-  { name: 'imageCover', maxCount: 1 },
+  { name: 'cover', maxCount: 1 },
   { name: 'images', maxCount: 3 }
 ]);
 
@@ -29,15 +29,15 @@ exports.uploadTourImages = upload.fields([
 // upload.array('images', 5) req.files
 
 exports.resizeTourImages = catchAsync(async (req, res, next) => {
-  if (!req.files.imageCover || !req.files.images) return next();
+  if (!req.files.cover || !req.files.images) return next();
 
   // 1) Cover image
-  req.body.imageCover = `tour-${req.params.id}-${Date.now()}-cover.jpeg`;
-  await sharp(req.files.imageCover[0].buffer)
+  req.body.cover = `tour-${req.params.id}-${Date.now()}-cover.jpeg`;
+  await sharp(req.files.cover[0].buffer)
     .resize(2000, 1333)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
-    .toFile(`public/img/tours/${req.body.imageCover}`);
+    .toFile(`public/img/tours/${req.body.cover}`);
 
   // 2) Images
   req.body.images = [];

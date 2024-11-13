@@ -95,7 +95,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"New Test Tour\",\n    \"duration\": 1,\n    \"maxGroupSize\": 1,\n    \"difficulty\": \"easy\",\n    \"price\": 200,\n    \"summary\": \"Test tour\",\n    \"imageCover\": \"tour-3-cover.jpg\"\n }"
+							"raw": "{\n    \"name\": \"New Test Tour\",\n    \"duration\": 1,\n    \"maxGroupSize\": 1,\n    \"difficulty\": \"easy\",\n    \"price\": 200,\n    \"summary\": \"Test tour\",\n    \"cover\": \"tour-3-cover.jpg\"\n }"
 						},
 						"url": {
 							"raw": "{{URL}}api/v1/tours",
@@ -136,7 +136,7 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "imageCover",
+									"key": "cover",
 									"type": "file",
 									"src": ""
 								},
